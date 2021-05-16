@@ -1,0 +1,19 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: provider #当前服务注册在eureka server名称
+  sleuth:
+    web:
+      client:
+        enabled: true #设置开启请求跟踪
+    sampler:
+      probability: 1.0  #设置采样比例，默认是1.0
+  zipkin:
+    base-url: http://localhost:9090/ #设置zipkin server地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ #注册中心访问地址
+    instance:
+      prefer-ip-address: true  #是否将当前服务的ip注册到eureka server
